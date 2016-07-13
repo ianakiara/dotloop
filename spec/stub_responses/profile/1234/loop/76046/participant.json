@@ -1,0 +1,20 @@
+[
+    {
+        "email": "new2_person@email.com",
+        "memberOfMyTeam": "N",
+        "name": "New Person",
+        "participantId": 3600616,
+        "role": "None"
+    },
+    {
+        "memberOfMyTeam": "Y",
+        "name": "DotLoop Final Review",
+        "role": "Managing Broker"
+    },
+    {
+        "email": "kfouts@email_address.com",
+        "memberOfMyTeam": "Y",
+        "name": "K Fouts",
+        "role": "Listing Agent"
+    }
+]

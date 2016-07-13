@@ -1,0 +1,22 @@
+[
+    {
+        "emailAddress": "smurphy@emailaddress.com",
+        "firstName": "Scott",
+        "isAdmin": "false",
+        "lastName": "Murphy",
+        "loopsCreated": 4,
+        "memberId": 294132,
+        "status": "ACTIVE",
+        "totalLoops": 5
+    },
+    {
+        "emailAddress": "rmurphy@emailaddress.com",
+        "firstName": "Rob",
+        "isAdmin": "false",
+        "lastName": "Murphy",
+        "loopsCreated": 1,
+        "memberId": 290767,
+        "status": "ACTIVE",
+        "totalLoops": 1
+    }
+]

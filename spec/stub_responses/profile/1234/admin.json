@@ -1,0 +1,18 @@
+[
+    {
+        "emailAddress": "listingAgent@emailaddress.com",
+        "firstName": "TestFirstName1",
+        "isAdmin": "true",
+        "lastName": "TestLastName1",
+        "memberId": 2629538,
+        "status": "ACTIVE"
+    },
+    {
+        "emailAddress": "sellingAgent@emailaddress.com",
+        "firstName": "TestFirstName2",
+        "isAdmin": "true",
+        "lastName": "TestLastName2",
+        "memberId": 2570270,
+        "status": "ENROLLED"
+    }
+]

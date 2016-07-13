@@ -1,0 +1,25 @@
+[
+    {
+        "active": true,
+        "address1": "123 Main St.",
+        "address2": "",
+        "city": "Cincinnati",
+        "companyName": "Demo Brokerage",
+        "deleted": false,
+        "faxNumber": "",
+        "name": "Demo Brokerage",
+        "phoneNumber": "5131234567",
+        "profileId": 1234,
+        "profileType": "BROKERAGE",
+        "state": "OH",
+        "suite": "",
+        "zipcode": "45203"
+    },
+    {
+        "active": true,
+        "deleted": false,
+        "name": "Personal Profile",
+        "profileId": 4234,
+        "profileType": "INDIVIDUAL"
+    }
+]
