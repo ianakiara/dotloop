@@ -32,18 +32,20 @@ RSpec.describe Dotloop::Client do
   end
 
   describe '#get' do
-    let(:parsed_result) { { blahBlog: 42 } }
+    let(:parsed_response) { { blahBlog: 42 } }
     let(:code) { 200 }
-    let(:response) { double(code: code, parsed_result: parsed_result) }
-    let(:params) do
+    let(:response) { double(code: code, parsed_response: parsed_response) }
+    let(:headers) do
       {
-        headers: { Authorization: "Bearer #{api_key}", 'User-Agent': application },
-        timeout: 60
+        'Authorization' => "Bearer #{api_key}",
+        'User-Agent' => application,
+        'Accept' => '*/*'
       }
     end
 
     it 'should call HTTParty get with the correct params' do
-      expect(subject.class).to receive(:get).with('foo', params.merge(bar: 2)).and_return(response)
+      expect(subject.class).to receive(:get)
+        .with('foo', query: { bar: 2 }, headers: headers, timeout: 60).and_return(response)
       subject.get('foo', bar: 2)
     end
 
@@ -63,7 +65,7 @@ RSpec.describe Dotloop::Client do
     end
 
     context 'when the response is an array' do
-      let(:parsed_result) do
+      let(:parsed_response) do
         [
           { fooBar: 10 },
           { snakeFace: 22 }

@@ -16,7 +16,7 @@ RSpec.describe Dotloop::Loop do
 
   describe '#all' do
     it 'should return all loops' do
-      expect(client).to receive(:get).with('profile/1234/loop').and_return(json_fixture('profile/1234/loop.json'))
+      expect(client).to receive(:get).with('/profile/1234/loop').and_return(json_fixture('profile/1234/loop.json'))
       loops = subject.all(profile_id: '1234')
       expect(loops.size).to eq(2)
       expect(loops).to all(be_a(Dotloop::Models::Loop))

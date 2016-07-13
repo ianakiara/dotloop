@@ -18,7 +18,7 @@ module Dotloop
     end
 
     def all(profile_id:)
-      @client.get("profile/#{profile_id.to_i}/loop").map do |attrs|
+      @client.get("/profile/#{profile_id.to_i}/loop").map do |attrs|
         Dotloop::Models::Loop.new(attrs)
       end
     end

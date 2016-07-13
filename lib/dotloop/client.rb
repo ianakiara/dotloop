@@ -14,9 +14,9 @@ module Dotloop
     end
 
     def get(page, params = {})
-      response = self.class.get(page, params.merge(options))
-      raise 'Error communicating' unless response.code == 200
-      self.class.snakify(response.parsed_result)
+      response = self.class.get(page, query: params, headers: headers, timeout: 60)
+      raise "Error communicating: Response code #{response.code}" unless response.code == 200
+      self.class.snakify(response.parsed_response)
     end
 
     def Profile
@@ -37,10 +37,11 @@ module Dotloop
 
     private
 
-    def options
+    def headers
       {
-        headers: { Authorization: "Bearer #{@api_key}", 'User-Agent': @application },
-        timeout: 60
+        'Authorization' => "Bearer #{@api_key}",
+        'User-Agent' => @application,
+        'Accept' => '*/*'
       }
     end
   end

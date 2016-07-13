@@ -7,7 +7,7 @@ module Dotloop
     end
 
     def all
-      @client.get('profile').map do |profile_attrs|
+      @client.get('/profile').map do |profile_attrs|
         profile = Dotloop::Models::Profile.new(profile_attrs)
         profile.client = client
         profile
