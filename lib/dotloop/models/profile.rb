@@ -17,7 +17,12 @@ module Dotloop
       attribute :state
       attribute :suite
       attribute :zipcode
-      attribute :client, Dotloop::Client
+
+      attr_accessor :client
+
+      def loops
+        client.Loop.all(profile_id: profile_id)
+      end
     end
   end
 end

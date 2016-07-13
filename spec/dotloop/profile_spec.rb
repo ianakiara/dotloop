@@ -20,6 +20,7 @@ RSpec.describe Dotloop::Profile do
       profiles = subject.all
       expect(profiles).to_not be_empty
       expect(profiles).to all(be_a(Dotloop::Models::Profile))
+      expect(profiles.first.client).to eq(client)
       expect(profiles.first).to have_attributes(
         active: true,
         address1: '123 Main St.',

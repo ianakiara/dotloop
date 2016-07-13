@@ -8,7 +8,9 @@ module Dotloop
 
     def all
       @client.get('profile').map do |profile_attrs|
-        Dotloop::Models::Profile.new(profile_attrs)
+        profile = Dotloop::Models::Profile.new(profile_attrs)
+        profile.client = client
+        profile
       end
     end
   end
