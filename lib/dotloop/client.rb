@@ -5,14 +5,16 @@ module Dotloop
     base_uri 'https://www.dotloop.com/my/api/v1_0/'
 
     attr_accessor :api_key
+    attr_accessor :application
 
-    def initialize(api_key:)
+    def initialize(api_key:, application: 'dotloop')
       @api_key = api_key
+      @application = application
       raise 'Please enter an API key' unless @api_key
     end
 
-    def get(page, params)
-      response = self.class.get(page, params)
+    def get(page, params = {})
+      response = self.class.get(page, params.merge(options))
       raise 'Error communicating' unless response.code == 200
       self.class.snakify(response.parsed_result)
     end
@@ -31,6 +33,15 @@ module Dotloop
       else
         hash.to_snake_keys
       end
+    end
+
+    private
+
+    def options
+      {
+        headers: { Authorization: "Bearer #{@api_key}", 'User-Agent': @application },
+        timeout: 60
+      }
     end
   end
 end

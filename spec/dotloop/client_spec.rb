@@ -2,12 +2,25 @@ require_relative '../spec_helper'
 
 RSpec.describe Dotloop::Client do
   let(:api_key) { 'blah' }
-  subject { Dotloop::Client.new(api_key: api_key) }
+  let(:application) { 'bloh' }
+  subject { Dotloop::Client.new(api_key: api_key, application: application) }
 
   describe '#initialize' do
     it 'should take an api key' do
       expect(subject).to be_a(Dotloop::Client)
       expect(subject.api_key).to eq('blah')
+    end
+
+    context 'without application' do
+      subject { Dotloop::Client.new(api_key: api_key) }
+
+      it 'should default the application name to dotloop' do
+        expect(subject.application).to eq('dotloop')
+      end
+    end
+
+    it 'should take an application name' do
+      expect(subject.application).to eq('bloh')
     end
 
     context 'without an api key' do
@@ -22,17 +35,23 @@ RSpec.describe Dotloop::Client do
     let(:parsed_result) { { blahBlog: 42 } }
     let(:code) { 200 }
     let(:response) { double(code: code, parsed_result: parsed_result) }
+    let(:params) do
+      {
+        headers: { Authorization: "Bearer #{api_key}", 'User-Agent': application },
+        timeout: 60
+      }
+    end
 
     it 'should call HTTParty get with the correct params' do
-      expect(subject.class).to receive(:get).with('foo', bar: 2).and_return(response)
+      expect(subject.class).to receive(:get).with('foo', params.merge(bar: 2)).and_return(response)
       subject.get('foo', bar: 2)
     end
 
     context 'when there is an error' do
       let(:code) { 234 }
       it 'should raise an error if the response code is not 200' do
-        expect(subject.class).to receive(:get).with('foo', bar: 2).and_return(response)
-        expect { subject.get('foo', bar: 2) }.to raise_error
+        expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
+        expect { subject.get('foo') }.to raise_error
       end
     end
 
