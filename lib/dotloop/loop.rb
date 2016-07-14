@@ -1,7 +1,7 @@
 module Dotloop
   class Loop
     attr_accessor :client
-
+    BATCH_SIZE = 50
     # attr_accessor :profile_id
     # attr_accessor :batch_number
     # attr_accessor :batch_size
@@ -18,7 +18,21 @@ module Dotloop
     end
 
     def all(profile_id:)
-      @client.get("/profile/#{profile_id.to_i}/loop").map do |attrs|
+      batches = []
+      batch_number = 1
+      loop do
+        batch = retrieve_batch(profile_id: profile_id, batch_size: BATCH_SIZE, batch_number: batch_number)
+        batches += batch
+        batch_number += 1
+        break if batch.size < BATCH_SIZE
+      end
+      batches
+    end
+
+    private
+
+    def retrieve_batch(profile_id:, batch_size:, batch_number:)
+      @client.get("/profile/#{profile_id.to_i}/loop", batchSize: batch_size, batchNumber: batch_number).map do |attrs|
         Dotloop::Models::Loop.new(attrs)
       end
     end
