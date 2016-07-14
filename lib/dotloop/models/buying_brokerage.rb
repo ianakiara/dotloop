@@ -2,7 +2,7 @@ module Dotloop
   module Models
     class BuyingBrokerage
       include Virtus.model
-      
+
       attribute :city
       attribute :name
       attribute :postal_code
