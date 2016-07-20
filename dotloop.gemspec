@@ -6,12 +6,12 @@ require 'dotloop/version'
 Gem::Specification.new do |spec|
   spec.name          = 'dotloop'
   spec.version       = Dotloop::VERSION
-  spec.authors       = ['Shane Davies']
-  spec.email         = ['shane@loft47.com']
+  spec.authors       = ['Loft47']
+  spec.email         = ['support@loft47.com']
 
-  spec.summary       = 'A ruby client for the Dotloop API'
-  spec.description   = 'A ruby client for the Dotloop API.  Longer.'
-  spec.homepage      = 'http://github.com/Loft47/dotloop'
+  spec.summary       = %q{Dotloop library}
+  spec.description   = %q{Ruby library for Dotloop API.}
+  spec.homepage      = %q{http://github.com/Loft47/dotloop}
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'byebug'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'webmock'
 end

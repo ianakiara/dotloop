@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
 RSpec.describe Dotloop::Loop do
-  let(:client) { double }
+  let(:client) { Dotloop::Client.new(api_key: SecureRandom.uuid) }
   subject { Dotloop::Loop.new(client: client) }
 
   describe '#initialize' do
@@ -14,13 +14,11 @@ RSpec.describe Dotloop::Loop do
     end
   end
 
+  before(:each) { mock_loop_batches }
   describe '#all' do
     it 'should return all loops' do
-      expect(client).to receive(:get)
-        .with('/profile/1234/loop', batchNumber: 1, batchSize: 50)
-        .and_return(json_fixture('profile/1234/loop.json'))
       loops = subject.all(profile_id: '1234')
-      expect(loops.size).to eq(2)
+      expect(loops.size).to eq(52)
       expect(loops).to all(be_a(Dotloop::Models::Loop))
       expect(loops.first.attributes).to eq(
         Dotloop::Models::Loop.new(
@@ -38,12 +36,6 @@ RSpec.describe Dotloop::Loop do
           transaction_type: 'Listing for Sale'
         ).attributes
       )
-    end
-
-    it 'should pull multiple batches if there are more loops' do
-      expect(subject).to receive(:retrieve_batch).with(batch_size: 50, batch_number: 1, profile_id: 9) { Array.new(50) }
-      expect(subject).to receive(:retrieve_batch).with(batch_size: 50, batch_number: 2, profile_id: 9) { Array.new(2) }
-      expect(subject.all(profile_id: 9).size).to eq 52
     end
   end
 end

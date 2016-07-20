@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
 RSpec.describe Dotloop::Profile do
-  let(:client) { double }
+  let(:client) { Dotloop::Client.new(api_key: SecureRandom.uuid) }
   subject { Dotloop::Profile.new(client: client) }
 
   describe '#initialize' do
@@ -16,7 +16,7 @@ RSpec.describe Dotloop::Profile do
 
   describe '#all' do
     it 'should return a list of profiles' do
-      expect(client).to receive(:get).with('/profile').and_return(json_fixture('profile.json'))
+      dotloop_mock(:profiles)
       profiles = subject.all
       expect(profiles).to_not be_empty
       expect(profiles).to all(be_a(Dotloop::Models::Profile))

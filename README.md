@@ -1,8 +1,10 @@
-# Dotloop
+# DotLoop API Library
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dotloop`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+This library is designed to help ruby applications consume the DotLoop API.
+
+You can read more about the api the the official documentation at [https://support.dotloop.com](https://support.dotloop.com/hc/en-us/articles/204407013-Dotloop-REST-API-Developer-s-Guide)
 
 ## Installation
 
@@ -21,8 +23,8 @@ Or install it yourself as:
     $ gem install dotloop
 
 ## Usage
-
-TODO: Write usage instructions here
+    Dotloop::Client.new(api_key: 'c4c26918-b2df-49a6-9bc2-9009274b23a7')
+    client.Profile.all
 
 ## Development
 
@@ -38,4 +40,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
