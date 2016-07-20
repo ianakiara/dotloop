@@ -37,5 +37,61 @@ RSpec.describe Dotloop::Loop do
         ).attributes
       )
     end
+
+    it 'accepts parameter status_ids' do
+      expect(client).to receive(:get).with(
+        '/profile/1234/loop',
+        batchNumber: 1, batchSize: 50, statusIds: [1, 2, 3]
+      ).and_return([])
+      subject.all(profile_id: '1234', options: { status_ids: [1, 2, 3] })
+    end
+
+    it 'accepts parameter compliance_status_ids' do
+      expect(client).to receive(:get).with(
+        '/profile/1234/loop',
+        batchNumber: 1, batchSize: 50, complianceStatusIds: [1, 2, 3]
+      ).and_return([])
+      subject.all(profile_id: '1234', options: { compliance_status_ids: [1, 2, 3] })
+    end
+
+    it 'accepts parameter tag_ids' do
+      expect(client).to receive(:get).with(
+        '/profile/1234/loop',
+        batchNumber: 1, batchSize: 50, tagIds: [1, 2, 3]
+      ).and_return([])
+      subject.all(profile_id: '1234', options: { tag_ids: [1, 2, 3] })
+    end
+
+    it 'accepts parameter sort_by' do
+      expect(client).to receive(:get).with(
+        '/profile/1234/loop',
+        batchNumber: 1, batchSize: 50, sortBy: 'sort me'
+      ).and_return([])
+      subject.all(profile_id: '1234', options: { sort_by: 'sort me' })
+    end
+
+    it 'accepts parameter search_query' do
+      expect(client).to receive(:get).with(
+        '/profile/1234/loop',
+        batchNumber: 1, batchSize: 50, searchQuery: 'search me'
+      ).and_return([])
+      subject.all(profile_id: '1234', options: { search_query: 'search me' })
+    end
+
+    it 'accepts parameter tag_names' do
+      expect(client).to receive(:get).with(
+        '/profile/1234/loop',
+        batchNumber: 1, batchSize: 50, tagNames: 'tags'
+      ).and_return([])
+      subject.all(profile_id: '1234', options: { tag_names: 'tags' })
+    end
+
+    it 'accepts parameter created_by_me' do
+      expect(client).to receive(:get).with(
+        '/profile/1234/loop',
+        batchNumber: 1, batchSize: 50, createdByMe: 123_456
+      ).and_return([])
+      subject.all(profile_id: '1234', options: { created_by_me: 123_456 })
+    end
   end
 end
