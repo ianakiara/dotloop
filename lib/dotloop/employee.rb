@@ -7,7 +7,8 @@ module Dotloop
     end
 
     def all(profile_id:)
-      @client.get("/profile/#{profile_id.to_i}/employee").map { |employee_attrs| Dotloop::Models::Employee.new(employee_attrs) }
+      url = "/profile/#{profile_id.to_i}/employee"
+      @client.get(url).map { |employee_attrs| Dotloop::Models::Employee.new(employee_attrs) }
     end
   end
 end

@@ -14,6 +14,7 @@ RSpec.describe Dotloop::DocumentActivity do
     end
   end
 
+  # rubocop:disable Metrics/LineLength
   describe '#all' do
     it 'should return a document_activity' do
       dotloop_mock(:document_activities)

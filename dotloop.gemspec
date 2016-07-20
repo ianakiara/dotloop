@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Loft47']
   spec.email         = ['support@loft47.com']
 
-  spec.summary       = %q{Dotloop library}
-  spec.description   = %q{Ruby library for Dotloop API.}
-  spec.homepage      = %q{http://github.com/Loft47/dotloop}
+  spec.summary       = %(Dotloop library)
+  spec.description   = %(Ruby library for Dotloop API.)
+  spec.homepage      = %(http://github.com/Loft47/dotloop)
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
