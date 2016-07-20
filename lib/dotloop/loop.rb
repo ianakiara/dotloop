@@ -8,14 +8,7 @@ module Dotloop
       @client = client
     end
 
-    # rubocop:disable Metrics/ParameterLists
-    def all(
-      profile_id:, batch_number: nil, batch_size: nil, status_ids: [],
-      compliance_status_ids: [], tag_ids: [], sort_by: nil, search_query: nil,
-      tag_names: nil, created_by_me: nil
-    )
-      options = keyword_to_hash(__method__, binding)
-      options[:batch_size] = BATCH_SIZE
+    def all(options = {})
       loops = []
       (1..MAX_LOOPS).each do |i|
         options[:batch_number] = i
@@ -26,21 +19,20 @@ module Dotloop
       loops
     end
 
-    def batch(
-      profile_id:, batch_number: nil, batch_size: nil, status_ids: [],
-      compliance_status_ids: [], tag_ids: [], sort_by: nil, search_query: nil,
-      tag_names: nil, created_by_me: nil
-    )
-      options = keyword_to_hash(__method__, binding)
-      @client.get("/profile/#{profile_id.to_i}/loop", query_params(options)).map do |attrs|
+    def batch(options = {})
+      @client.get("/profile/#{profile_id(options)}/loop", query_params(options)).map do |attrs|
         Dotloop::Models::Loop.new(attrs)
       end
     end
 
-    def find(profile_id:, loop_id:)
-      loop_data = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_id.to_i}").first
-      loop_detail = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_id.to_i}/detail")
+    def find(profile_id:, loop_view_id:)
+      loop_data = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}").first
       Dotloop::Models::Loop.new(loop_data.merge(loop_detail))
+    end
+
+    def detail(profile_id:, loop_view_id:)
+      loop_detail = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}/detail")
+      Dotloop::Models::LoopDetail.new(loop_data.merge(loop_detail))
     end
 
     private
@@ -57,6 +49,11 @@ module Dotloop
         tagNames:            options[:tag_names],
         createdByMe:         created_by_me(options)
       }.delete_if { |_, v| v.nil? }
+    end
+
+    def profile_id(options)
+      raise 'profile_id is required' unless options[:profile_id]
+      options[:profile_id].to_i
     end
 
     def batch_number(options)
@@ -93,15 +90,6 @@ module Dotloop
     def empty_to_nil(value)
       return if value.empty?
       value
-    end
-
-    def keyword_to_hash(method_name, bound)
-      parameter_keys = method(method_name).parameters.map(&:last)
-      parameter_keys.each_with_object({}) do |key, memo|
-        val = bound.local_variable_get(key)
-        next if val.nil? || val.is_a?(Array) && val.empty?
-        memo[key] = val
-      end
     end
   end
 end
