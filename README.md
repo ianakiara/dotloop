@@ -1,7 +1,5 @@
 # DotLoop API Library
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dotloop`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 This library is designed to help ruby applications consume the DotLoop API.
 
 You can read more about the api the the official documentation at [https://support.dotloop.com](https://support.dotloop.com/hc/en-us/articles/204407013-Dotloop-REST-API-Developer-s-Guide)
