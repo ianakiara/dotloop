@@ -1,8 +1,7 @@
 module Dotloop
   class Loop
+    include Dotloop::QueryParamHelpers
     attr_accessor :client
-    BATCH_SIZE = 50
-    MAX_LOOPS = 500
 
     def initialize(client:)
       @client = client
@@ -55,48 +54,7 @@ module Dotloop
         searchQuery:         options[:search_query],
         tagNames:            options[:tag_names],
         createdByMe:         created_by_me(options)
-      }.delete_if { |_, v| v.nil? }
-    end
-
-    def profile_id(options)
-      raise 'profile_id is required' unless options[:profile_id]
-      options[:profile_id].to_i
-    end
-
-    def batch_number(options)
-      zero_to_nil(options[:batch_number])
-    end
-
-    def batch_size(options)
-      size = options[:batch_size].to_i
-      return BATCH_SIZE if size < 1 || size > BATCH_SIZE
-      size
-    end
-
-    def status_ids(options)
-      empty_to_nil([options[:status_ids]].flatten.map { |value| zero_to_nil(value) }.compact)
-    end
-
-    def compliance_status_ids(options)
-      empty_to_nil([options[:compliance_status_ids]].flatten.map { |value| zero_to_nil(value) }.compact)
-    end
-
-    def tag_ids(options)
-      empty_to_nil([options[:tag_ids]].flatten.map { |value| zero_to_nil(value) }.compact)
-    end
-
-    def created_by_me(options)
-      zero_to_nil(options[:created_by_me])
-    end
-
-    def zero_to_nil(value)
-      return if value.to_i < 1
-      value.to_i
-    end
-
-    def empty_to_nil(value)
-      return if value.empty?
-      value
+      }.delete_if { |_, v| should_delete(v) }
     end
   end
 end
