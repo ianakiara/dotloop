@@ -14,11 +14,11 @@ RSpec.describe Dotloop::Admin do
     end
   end
 
+  before(:each) { dotloop_mock_batch(:admins) }
   describe '#all' do
     it 'should return a list of admins' do
-      dotloop_mock(:admins)
       admins = subject.all(profile_id: 1234)
-      expect(admins).to_not be_empty
+      expect(admins.size).to eq(52)
       expect(admins).to all(be_a(Dotloop::Models::Admin))
       expect(admins.first).to have_attributes(
         email_address: 'listingAgent@emailaddress.com',

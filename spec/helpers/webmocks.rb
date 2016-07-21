@@ -8,8 +8,8 @@ module Helpers
       .to_return(body: data_file, status: 200, headers: { 'Content-Type' => 'application/json' })
   end
 
-  def mock_loop_batches
-    endpoint = standard_endpoints(:loops)
+  def dotloop_mock_batch(request)
+    endpoint = standard_endpoints(request)
     batch1_file = File.new(filename_to_path([endpoint, '_page1']))
     batch2_file = File.new(filename_to_path([endpoint, '_page2']))
     url = endpoint_to_url(endpoint)

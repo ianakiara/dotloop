@@ -17,9 +17,9 @@ RSpec.describe Dotloop::DocumentActivity do
   # rubocop:disable Metrics/LineLength
   describe '#all' do
     it 'should return a document_activity' do
-      dotloop_mock(:document_activities)
+      dotloop_mock_batch(:document_activities)
       document_activity = subject.all(profile_id: 1_234, document_id: 561_622)
-      expect(document_activity).to_not be_empty
+      expect(document_activity.size).to eq(52)
       expect(document_activity).to all(be_a(Dotloop::Models::DocumentActivity))
       expect(document_activity.first).to have_attributes(
         activity_date: DateTime.parse('2014-08-19T18:44:52-04:00'),
