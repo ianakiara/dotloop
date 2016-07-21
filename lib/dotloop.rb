@@ -21,6 +21,7 @@ require 'dotloop/models/buying_brokerage'
 require 'dotloop/models/listing_brokerage'
 require 'dotloop/models/financials'
 require 'dotloop/models/section'
+require 'dotloop/models/loop_detail'
 
 require 'dotloop/models/admin'
 require 'dotloop/models/document'

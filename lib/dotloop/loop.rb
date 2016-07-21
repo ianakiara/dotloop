@@ -27,15 +27,22 @@ module Dotloop
 
     def find(profile_id:, loop_view_id:)
       loop_data = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}").first
-      Dotloop::Models::Loop.new(loop_data.merge(loop_detail))
+      Dotloop::Models::Loop.new(loop_data)
     end
 
     def detail(profile_id:, loop_view_id:)
       loop_detail = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}/detail")
-      Dotloop::Models::LoopDetail.new(loop_data.merge(loop_detail))
+      loop_detail[:sections] = fixed_sections(loop_detail[:sections])
+      Dotloop::Models::LoopDetail.new(loop_detail)
     end
 
     private
+
+    def fixed_sections(sections)
+      sections.each_with_object({}) do |item, memo|
+        memo[item[0].to_s.downcase.tr(' ', '_')] = item[1]
+      end
+    end
 
     def query_params(options)
       {
