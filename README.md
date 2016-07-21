@@ -1,6 +1,7 @@
 # DotLoop API Library
 [![Build Status](https://travis-ci.org/Loft47/dotloop.svg?branch=master)](https://travis-ci.org/Loft47/dotloop)
-[![Coverage Status](https://coveralls.io/repos/github/Loft47/dotloop/badge.svg?branch=master)](https://coveralls.io/github/Loft47/dotloop?branch=master)
+
+[![Coverage Status](https://coveralls.io/repos/github/Loft47/dotloop/badge.svg?branch=master&blah=blogh)](https://coveralls.io/github/Loft47/dotloop?branch=master)
 
 This library is designed to help ruby applications consume the DotLoop API.
 
