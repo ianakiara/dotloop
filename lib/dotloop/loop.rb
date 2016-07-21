@@ -26,7 +26,7 @@ module Dotloop
     end
 
     def find(profile_id:, loop_view_id:)
-      loop_data = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}").first
+      loop_data = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}")
       Dotloop::Models::Loop.new(loop_data)
     end
 
