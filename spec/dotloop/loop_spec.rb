@@ -17,7 +17,7 @@ RSpec.describe Dotloop::Loop do
   before(:each) { mock_loop_batches }
   describe '#all' do
     it 'should return all loops' do
-      loops = subject.all(profile_id: '1234')
+      loops = subject.all(profile_id: '1234', batch_size: '20')
       expect(loops.size).to eq(52)
       expect(loops).to all(be_a(Dotloop::Models::Loop))
       expect(loops.first.attributes).to eq(
