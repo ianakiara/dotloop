@@ -17,18 +17,12 @@ AllCops:
     - '**/Cheffile'
     - '**/Vagabondfile'
   Exclude:
-    - 'lib/local_resource.rb'
-    - 'lib/generated_obfuscator.rb'
-    - 'node_modules/**/*'
     - '**/Guardfile'
     - 'db/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
     - 'bin/**/*'
     - 'log/**/*'
-    - 'lib/tasks/cucumber.rake'
-    - 'config/initializers/active_admin_shared_profile_resources.rb'
-    - 'config/initializers/active_admin_shared_task_resources.rb'
 Documentation:
   Enabled: false
 Metrics/LineLength:
@@ -41,8 +35,6 @@ Metrics/MethodLength:
   CountComments: false
   Max: 15
 Style/RaiseArgs:
-  Enabled: false
-Style/ClassAndModuleChildren:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
