@@ -16,15 +16,36 @@ RSpec.describe Dotloop::Person do
 
   describe '#all' do
     it 'should return a list of persons' do
-      dotloop_mock(:persons)
+      dotloop_mock_batch(:persons)
       persons = subject.all(profile_id: 1234)
-      expect(persons).to_not be_empty
+      expect(persons.size).to eq(52)
       expect(persons).to all(be_a(Dotloop::Models::Person))
       expect(persons.first).to have_attributes(
         email: 'FirstLast@test.com',
         first_name: 'Test FirstName',
         last_name: 'Test LastName',
         person_id: 3_623_822
+      )
+    end
+  end
+
+  describe '#find' do
+    it 'should return a single person' do
+      dotloop_mock(:person)
+      person = subject.find(profile_id: 1234, person_id: 3_603_862)
+      expect(person).to be_a(Dotloop::Models::Person)
+      expect(person).to have_attributes(
+        city: 'Richardson',
+        email: 'brianerwin@newkyhome.com',
+        fax: '1118655686',
+        first_name: 'Brian',
+        homephone: '2138936332',
+        last_name: 'Erwin',
+        officephone: '1121213656',
+        person_id: 3_603_862,
+        state_or_prov: 'TX',
+        street_address01: '2100 Waterview dr',
+        zip_or_postal_code: '75081'
       )
     end
   end

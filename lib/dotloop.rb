@@ -4,6 +4,7 @@ require 'virtus'
 
 require 'dotloop/version'
 require 'dotloop/client'
+require 'dotloop/query_param_helpers'
 require 'dotloop/profile'
 require 'dotloop/loop'
 require 'dotloop/admin'

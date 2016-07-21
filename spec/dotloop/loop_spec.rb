@@ -14,7 +14,7 @@ RSpec.describe Dotloop::Loop do
     end
   end
 
-  before(:each) { mock_loop_batches }
+  before(:each) { dotloop_mock_batch(:loops) }
   describe '#all' do
     it 'should return all loops' do
       expect(subject).to receive(:batch).twice.and_call_original
