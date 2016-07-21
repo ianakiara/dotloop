@@ -9,11 +9,12 @@ module Dotloop
 
     def all(options = {})
       loops = []
+      options[:batch_size] = BATCH_SIZE
       (1..MAX_LOOPS).each do |i|
         options[:batch_number] = i
-        current_loop = batch(options)
-        loops += current_loop
-        break if current_loop.size < BATCH_SIZE
+        current_batch = batch(options)
+        loops += current_batch
+        break if current_batch.size < options[:batch_size]
       end
       loops
     end

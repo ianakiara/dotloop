@@ -37,8 +37,7 @@ module Dotloop
 
     def batch_size(options)
       size = options[:batch_size].to_i
-      return BATCH_SIZE if size < 1 || size > BATCH_SIZE
-      size
+      size.between?(1, BATCH_SIZE) ? size : BATCH_SIZE
     end
 
     def status_ids(options)
