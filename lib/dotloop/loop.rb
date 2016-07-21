@@ -15,7 +15,7 @@ module Dotloop
         options[:batch_number] = i
         current_batch = batch(options)
         loops += current_batch
-        break if current_batch.size < BATCH_SIZE
+        break if current_batch.size < options[:batch_size]
       end
       loops
     end
