@@ -1,4 +1,5 @@
 # DotLoop API Library
+[![Build Status](https://travis-ci.org/Loft47/dotloop.svg?branch=master)](https://travis-ci.org/Loft47/dotloop)
 
 This library is designed to help ruby applications consume the DotLoop API.
 
