@@ -22,6 +22,12 @@ module Helpers
       .to_return(body: batch2_file, status: 200, headers: { 'Content-Type' => 'application/json' })
   end
 
+  def dotloop_pdf
+    WebMock
+      .stub_request(:get, endpoint_to_url('profile/1234/loop/76046/document/561622/'))
+      .to_return(body: data_file, status: 200, headers: { 'Content-Type' => 'application/json' })
+  end
+
   private
 
   def filename_to_path(filenames)

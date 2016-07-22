@@ -94,4 +94,10 @@ RSpec.describe Dotloop::Client do
       expect(subject.Loop).to be_a(Dotloop::Loop)
     end
   end
+
+  describe '#Document' do
+    it 'should return a Document object' do
+      expect(subject.Document).to be_a(Dotloop::Document)
+    end
+  end
 end
