@@ -39,6 +39,7 @@ module Dotloop
     private
 
     def fixed_sections(sections)
+      return unless sections
       sections.each_with_object({}) do |item, memo|
         memo[item[0].to_s.downcase.tr(' ', '_')] = item[1]
       end

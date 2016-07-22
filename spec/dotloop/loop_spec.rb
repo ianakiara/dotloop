@@ -126,5 +126,13 @@ RSpec.describe Dotloop::Loop do
         street_number: '1234'
       )
     end
+    it 'finds a single loop detail by id when the sections are empty' do
+      dotloop_mock(:loop2_detail)
+      loop_detail = subject.detail(profile_id: 1234, loop_view_id: 76_047)
+      sections = loop_detail.sections
+      expect(loop_detail).to be_a(Dotloop::Models::LoopDetail)
+      expect(loop_detail.loop_id).to eq 274_232
+      expect(sections).to be_nil
+    end
   end
 end
