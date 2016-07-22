@@ -38,6 +38,7 @@ module Helpers
     {
       profiles:        'profile',                          loops:               'profile/1234/loop',
       loop:            'profile/1234/loop/76046',          loop_detail:         'profile/1234/loop/76046/detail',
+      loop2:           'profile/1234/loop/76047',          loop2_detail:        'profile/1234/loop/76047/detail',
       loop_activities: 'profile/1234/loop/76046/activity', documents:           'profile/1234/loop/76046/document',
       tasks:           'profile/1234/loop/76046/task',     participants:        'profile/1234/loop/76046/participant',
       folders:         'profile/1234/loop/76046/folder',   person:              'profile/1234/person/3603862',
