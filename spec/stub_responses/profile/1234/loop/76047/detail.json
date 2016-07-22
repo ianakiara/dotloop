@@ -1,0 +1,40 @@
+{
+    "loopId": 274232,
+    "sections": {
+        "Buying Brokerage": {
+            "city": "LA",
+            "name": "Bob's Buying Brokerage",
+            "postalCode": "90210",
+            "stateOrProvince": "CA",
+            "streetName": "Mockingbird Ln",
+            "streetNumber": "1313",
+            "suite": "#1"
+        },
+        "Financials": {
+            "comissionRate": "7%",
+            "currentPrice": "425000",
+            "earnestMoneyHeldBy": "Steve",
+            "originalListingPrice": "500,000",
+            "purchasePrice": "400,000"
+        },
+        "Listing Brokerage": {
+            "city": "Cincinnati",
+            "name": "DotLoop Final Review",
+            "officePhone": "",
+            "postalCode": "45242",
+            "stateOrProvince": "OH",
+            "streetName": "Lake Forest Dr.",
+            "streetNumber": "4445"
+        },
+        "Property Address": {
+            "city": "lauderdale",
+            "country": "USA",
+            "mlsNumber": "1234567890",
+            "postalCode": "32123",
+            "propertyAddressCountry": "USA",
+            "stateOrProvince": "KS",
+            "streetName": "manor ",
+            "streetNumber": "1234"
+        }
+    }
+}
