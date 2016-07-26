@@ -2,7 +2,7 @@ module Helpers
   def dotloop_mock(request)
     WebMock.reset!
     endpoint = standard_endpoints(request)
-    data_file = File.new(filename_to_path(endpoint))
+    data_file = File.new(filename_to_path_json(endpoint))
     WebMock
       .stub_request(:get, endpoint_to_url(endpoint))
       .to_return(body: data_file, status: 200, headers: { 'Content-Type' => 'application/json' })
@@ -10,8 +10,8 @@ module Helpers
 
   def dotloop_mock_batch(request)
     endpoint = standard_endpoints(request)
-    batch1_file = File.new(filename_to_path([endpoint, '_page1']))
-    batch2_file = File.new(filename_to_path([endpoint, '_page2']))
+    batch1_file = File.new(filename_to_path_json([endpoint, '_page1']))
+    batch2_file = File.new(filename_to_path_json([endpoint, '_page2']))
     url = endpoint_to_url(endpoint)
     WebMock.reset!
     WebMock
@@ -22,11 +22,25 @@ module Helpers
       .to_return(body: batch2_file, status: 200, headers: { 'Content-Type' => 'application/json' })
   end
 
+  def dotloop_pdf
+    WebMock.stub_request(
+      :get,
+      endpoint_to_url(
+        'profile/1234/loop/76046/document/561622/AgencyDisclosureStatementSeller.pdf'
+      )
+    )
+           .to_return(body: disclosure_file_data,
+                      status: 200,
+                      headers: {
+                        'Content-Type' => 'application/pdf',
+                        'content-disposition' => ['attachment; filename="AgencyDisclosureStatementSeller.pdf"']
+                      })
+  end
+
   private
 
-  def filename_to_path(filenames)
-    dotloop_stub_path = ROOT.join('spec', 'stub_responses')
-    File.new(dotloop_stub_path.join([filenames, '.json'].flatten.join))
+  def filename_to_path_json(filenames)
+    filename_to_path([filenames, '.json'].flatten.join)
   end
 
   def endpoint_to_url(endpoint)

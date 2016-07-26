@@ -33,4 +33,15 @@ RSpec.describe Dotloop::Document do
       )
     end
   end
+
+  describe '#get' do
+    it 'should get pdf data' do
+      dotloop_pdf
+      document = subject.get(profile_id: 1_234,
+                             loop_id: 76_046,
+                             document_id: 561_622,
+                             document_name: 'AgencyDisclosureStatementSeller')
+      expect(document.string).to eq(disclosure_file_data)
+    end
+  end
 end

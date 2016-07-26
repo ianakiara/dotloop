@@ -14,9 +14,14 @@ module Dotloop
     end
 
     def get(page, params = {})
+      response = raw(page, params)
+      self.class.snakify(response)
+    end
+
+    def raw(page, params = {})
       response = self.class.get(page, query: params, headers: headers, timeout: 60)
       raise "Error communicating: Response code #{response.code}" unless response.code == 200
-      self.class.snakify(response.parsed_response)
+      response.parsed_response
     end
 
     def Profile
@@ -25,6 +30,10 @@ module Dotloop
 
     def Loop
       @loop ||= Dotloop::Loop.new(client: self)
+    end
+
+    def Document
+      @document ||= Dotloop::Document.new(client: self)
     end
 
     def self.snakify(hash)
