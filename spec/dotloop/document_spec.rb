@@ -17,7 +17,7 @@ RSpec.describe Dotloop::Document do
   describe '#all' do
     it 'should return a list of documents' do
       dotloop_mock(:documents)
-      documents = subject.all(profile_id: 1_234, loop_id: 76_046)
+      documents = subject.all(profile_id: 1_234, loop_view_id: 76_046)
       expect(documents).to_not be_empty
       expect(documents).to all(be_a(Dotloop::Models::Document))
       expect(documents.first).to have_attributes(
@@ -38,7 +38,7 @@ RSpec.describe Dotloop::Document do
     it 'should get pdf data' do
       dotloop_pdf
       document = subject.get(profile_id: 1_234,
-                             loop_id: 76_046,
+                             loop_view_id: 76_046,
                              document_id: 561_622,
                              document_name: 'AgencyDisclosureStatementSeller')
       expect(document.string).to eq(disclosure_file_data)
