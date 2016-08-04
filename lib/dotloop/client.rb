@@ -36,6 +36,10 @@ module Dotloop
       @document ||= Dotloop::Document.new(client: self)
     end
 
+    def Participant
+      @participant ||= Dotloop::Participant.new(client: self)
+    end
+
     def self.snakify(hash)
       if hash.is_a? Array
         hash.map(&:to_snake_keys)
