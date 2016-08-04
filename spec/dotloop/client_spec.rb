@@ -100,4 +100,10 @@ RSpec.describe Dotloop::Client do
       expect(subject.Document).to be_a(Dotloop::Document)
     end
   end
+
+  describe '#Participant' do
+    it 'should return a Participant object' do
+      expect(subject.Participant).to be_a(Dotloop::Participant)
+    end
+  end
 end

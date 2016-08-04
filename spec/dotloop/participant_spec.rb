@@ -17,7 +17,7 @@ RSpec.describe Dotloop::Participant do
   describe '#all' do
     it 'should return a list of participants' do
       dotloop_mock(:participants)
-      participants = subject.all(profile_id: 1_234, loop_id: 76_046)
+      participants = subject.all(profile_id: 1_234, loop_view_id: 76_046)
       expect(participants).to_not be_empty
       expect(participants).to all(be_a(Dotloop::Models::Participant))
       expect(participants.first).to have_attributes(
