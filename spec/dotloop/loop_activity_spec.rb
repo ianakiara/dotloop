@@ -18,7 +18,7 @@ RSpec.describe Dotloop::LoopActivity do
   describe '#all' do
     it 'should return a loop_activity' do
       dotloop_mock_batch(:loop_activities)
-      loop_activity = subject.all(profile_id: 1_234, loop_id: 76_046)
+      loop_activity = subject.all(profile_id: 1_234, loop_view_id: 76_046)
       expect(loop_activity.size).to eq(57)
       expect(loop_activity).to all(be_a(Dotloop::Models::LoopActivity))
       expect(loop_activity.first).to have_attributes(
