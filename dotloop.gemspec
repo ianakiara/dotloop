@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
   spec.description   = %(Ruby library for Dotloop API.)
   spec.homepage      = %(http://github.com/Loft47/dotloop)
   spec.license       = 'MIT'
+  spec.cert_chain    = ['certs/shanedavies.pem']
+  spec.signing_key   = File.expand_path('~/.ssh/dotloop-private_key.pem') if $0 =~ /gem\z/
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -24,17 +26,17 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'simplecov'
-  spec.add_runtime_dependency 'coveralls'
+  spec.add_runtime_dependency 'simplecov', '~> 0.12'
+  spec.add_runtime_dependency 'coveralls', '~> 0.8'
   spec.add_runtime_dependency 'httparty', '~> 0.13'
   spec.add_runtime_dependency 'virtus', '~> 1.0'
   spec.add_runtime_dependency 'plissken', '~> 0.2'
   spec.add_development_dependency 'bundler', '~> 1.12'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'byebug'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'webmock'
-  spec.add_development_dependency 'travis'
+  spec.add_development_dependency 'pry', '~> 0.10'
+  spec.add_development_dependency 'byebug', '~> 9.0'
+  spec.add_development_dependency 'rubocop', '~> 0.41'
+  spec.add_development_dependency 'webmock', '~> 2.1'
+  spec.add_development_dependency 'travis', '~> 1.8'
 end
