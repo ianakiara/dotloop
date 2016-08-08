@@ -23,8 +23,73 @@ Or install it yourself as:
     $ gem install dotloop
 
 ## Usage
-    Dotloop::Client.new(api_key: 'c4c26918-b2df-49a6-9bc2-9009274b23a7')
-    client.Profile.all
+    client = Dotloop::Client.new(api_key: 'c4c26918-b2df-49a6-9bc2-9009274b23a7')
+
+    client.Profile.all                                                      #=> get list of profiles
+
+    client.Loop.all(
+      profile_id: '1234',
+      *batch_number: 1,
+      *batch_size: 50,
+      *statusIds: '1,2,3'
+      *complianceStatusIds: '1,2,3'
+      *tagIds: '1,2,3'
+      *sortBy: 'email'
+      *searchQuery: 'test@example.com'
+      *tagNames: 'tag'
+      *createdByMe: '1234567'
+    )                                                                       #=> get list of loops
+
+    client.Loop.all(profile_id: '1234', loop_view_id: '76046')              #=> get basic loop information
+
+    client.Loop.find(profile_id: '1234', loop_view_id: '76046')             #=> get loop details
+    client.LoopActivity.all(
+      profile_id: '1234',
+      loop_view_id: '76046',
+      *batch_number: 1,
+      *batch_size: 50
+    )                                                                       #=> get loop activity
+    client.Document.all(profile_id: '1234', loop_view_id: '76046')          #=> get loop document list
+
+    client.Participant.all(profile_id: '1234', loop_view_id: '76046')       #=> get a list of loop participants
+
+    client.Task.all(profile_id: '1234', loop_view_id: '76046')              #=> get a list of loop tasks
+
+    client.Folder.all(profile_id: '1234', loop_view_id: '76046')            #=> get a list of folders in a loop
+
+    client.Employee.all(
+      profile_id: '1234',
+      *batch_number: 1,
+      *batch_size: 50,
+      *show_admin: true,
+      *show_in_active: true,
+      *include_child: true
+    )                                                                       #=> get a list of users in a profile
+    client.DocumentActivity.all(
+      profile_id: '1234',
+      document_id: '561622',
+      *batch_number: 1,
+      *batch_size: 50
+    )                                                                       #=> get activity details for a document
+    client.Person.all(
+      profile_id: '1234',
+      *batch_number: 1,
+      *batch_size: 50
+    )                                                                       #=> get list of contacts
+    client.Person.find(profile_id: '1234', contact_id: '3603862')           #=> get details for a contact
+
+    client.Admin.all(
+      profile_id: '1234',
+      batch_number: 1,
+      batch_size: 50
+    )                                                                       #=> get list of admins for a profile
+
+    client.Document.get(
+      profile_id: '1234',
+      loop_view_id: '76046',
+      document_id: '561622',
+      document_name: 'My Offer'
+    )                                                                       #=> get a PDF document
 
 ## Development
 

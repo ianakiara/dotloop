@@ -17,7 +17,7 @@ RSpec.describe Dotloop::Folder do
   describe '#all' do
     it 'should return a list of folders' do
       dotloop_mock(:folders)
-      folders = subject.all(profile_id: 1_234, loop_id: 76_046)
+      folders = subject.all(profile_id: 1_234, loop_view_id: 76_046)
       expect(folders).to_not be_empty
       expect(folders).to all(be_a(Dotloop::Models::Folder))
       expect(folders.first).to have_attributes(

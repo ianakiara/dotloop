@@ -17,7 +17,7 @@ RSpec.describe Dotloop::Task do
   describe '#all' do
     it 'should return a list of tasks' do
       dotloop_mock(:tasks)
-      tasks = subject.all(profile_id: 1_234, loop_id: 76_046)
+      tasks = subject.all(profile_id: 1_234, loop_view_id: 76_046)
       expect(tasks).to_not be_empty
       expect(tasks).to all(be_a(Dotloop::Models::Task))
       expect(tasks.first).to have_attributes(

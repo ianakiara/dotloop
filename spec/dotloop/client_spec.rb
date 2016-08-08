@@ -106,4 +106,46 @@ RSpec.describe Dotloop::Client do
       expect(subject.Participant).to be_a(Dotloop::Participant)
     end
   end
+
+  describe '#LoopActivity' do
+    it 'should return a LoopActivity object' do
+      expect(subject.LoopActivity).to be_a(Dotloop::LoopActivity)
+    end
+  end
+
+  describe '#Task' do
+    it 'should return a Task object' do
+      expect(subject.Task).to be_a(Dotloop::Task)
+    end
+  end
+
+  describe '#Folder' do
+    it 'should return a Folder object' do
+      expect(subject.Folder).to be_a(Dotloop::Folder)
+    end
+  end
+
+  describe '#Employee' do
+    it 'should return a Employee object' do
+      expect(subject.Employee).to be_a(Dotloop::Employee)
+    end
+  end
+
+  describe '#DocumentActivity' do
+    it 'should return a DocumentActivity object' do
+      expect(subject.DocumentActivity).to be_a(Dotloop::DocumentActivity)
+    end
+  end
+
+  describe '#Person' do
+    it 'should return a Person object' do
+      expect(subject.Person).to be_a(Dotloop::Person)
+    end
+  end
+
+  describe '#Admin' do
+    it 'should return a Admin object' do
+      expect(subject.Admin).to be_a(Dotloop::Admin)
+    end
+  end
 end

@@ -30,9 +30,9 @@ module Dotloop
       options[:batch_number].to_i
     end
 
-    def loop_id(options)
-      raise 'loop_id is required' unless options[:loop_id]
-      options[:loop_id].to_i
+    def loop_view_id(options)
+      raise 'loop_view_id is required' unless options[:loop_view_id]
+      options[:loop_view_id].to_i
     end
 
     def batch_size(options)

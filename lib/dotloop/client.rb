@@ -40,6 +40,34 @@ module Dotloop
       @participant ||= Dotloop::Participant.new(client: self)
     end
 
+    def LoopActivity
+      @loop_activity ||= Dotloop::LoopActivity.new(client: self)
+    end
+
+    def Task
+      @task ||= Dotloop::Task.new(client: self)
+    end
+
+    def Folder
+      @folder ||= Dotloop::Folder.new(client: self)
+    end
+
+    def Employee
+      @employee ||= Dotloop::Employee.new(client: self)
+    end
+
+    def DocumentActivity
+      @document_activity ||= Dotloop::DocumentActivity.new(client: self)
+    end
+
+    def Person
+      @person ||= Dotloop::Person.new(client: self)
+    end
+
+    def Admin
+      @admin ||= Dotloop::Admin.new(client: self)
+    end
+
     def self.snakify(hash)
       if hash.is_a? Array
         hash.map(&:to_snake_keys)
