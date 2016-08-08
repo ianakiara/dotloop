@@ -23,6 +23,8 @@ Or install it yourself as:
     $ gem install dotloop
 
 ## Usage
+
+Optional parameters are prefixed with a __'*'__'
     client = Dotloop::Client.new(api_key: 'c4c26918-b2df-49a6-9bc2-9009274b23a7')
 
     client.Profile.all                                                      #=> get list of profiles
@@ -80,8 +82,8 @@ Or install it yourself as:
 
     client.Admin.all(
       profile_id: '1234',
-      batch_number: 1,
-      batch_size: 50
+      *batch_number: 1,
+      *batch_size: 50
     )                                                                       #=> get list of admins for a profile
 
     client.Document.get(
