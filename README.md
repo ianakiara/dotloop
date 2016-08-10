@@ -25,6 +25,8 @@ Or install it yourself as:
 ## Usage
 
 Optional parameters are prefixed with a __'*'__'
+
+```ruby
     client = Dotloop::Client.new(api_key: 'c4c26918-b2df-49a6-9bc2-9009274b23a7')
 
     client.Profile.all                                                      #=> get list of profiles
@@ -92,6 +94,7 @@ Optional parameters are prefixed with a __'*'__'
       document_id: '561622',
       document_name: 'My Offer'
     )                                                                       #=> get a PDF document
+```
 
 ## Development
 
