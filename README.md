@@ -4,7 +4,7 @@
 
 This library is designed to help ruby applications consume the DotLoop API.
 
-You can read more about the api the the official documentation at [https://support.dotloop.com](https://support.dotloop.com/hc/en-us/articles/204407013-Dotloop-REST-API-Developer-s-Guide)
+You can read more about the api from the official documentation at [https://support.dotloop.com](https://support.dotloop.com/hc/en-us/articles/204407013-Dotloop-REST-API-Developer-s-Guide)
 
 ## Installation
 
