@@ -35,6 +35,16 @@ RSpec.describe Dotloop::Document do
   end
 
   describe '#get' do
+    it 'removes forward slashes' do
+      expect(client).to receive(:raw)
+        .with('/profile/1234/loop/76046/document/561622/AgencyDisclosureStatementSeller.pdf')
+        .and_return('foo')
+      subject.get(profile_id: 1_234,
+                  loop_view_id: 76_046,
+                  document_id: 561_622,
+                  document_name: 'AgencyDi/sclosureStatementSell/er')
+    end
+
     it 'should get pdf data' do
       dotloop_pdf
       document = subject.get(profile_id: 1_234,

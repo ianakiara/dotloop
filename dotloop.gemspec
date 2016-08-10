@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = %(http://github.com/Loft47/dotloop)
   spec.license       = 'MIT'
   spec.cert_chain    = ['certs/shanedavies.pem']
-  spec.signing_key   = File.expand_path('~/.ssh/dotloop-private_key.pem') if $0 =~ /gem\z/
+  spec.signing_key   = File.expand_path('~/.ssh/dotloop-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
