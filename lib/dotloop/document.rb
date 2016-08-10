@@ -15,7 +15,7 @@ module Dotloop
     end
 
     def get(profile_id:, loop_view_id:, document_id:, document_name:)
-      document_name = CGI.escape(document_name)
+      document_name = CGI.escape(document_name.delete('/'))
       StringIO.new(
         @client.raw(
           "/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}/document/#{document_id}/#{document_name}.pdf"
