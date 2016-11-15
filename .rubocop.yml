@@ -23,6 +23,7 @@ AllCops:
     - 'vendor/**/*'
     - 'bin/**/*'
     - 'log/**/*'
+    - 'dotloop.gemspec'
 Documentation:
   Enabled: false
 Metrics/LineLength:
