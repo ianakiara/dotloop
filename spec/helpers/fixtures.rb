@@ -3,7 +3,8 @@ module Fixtures
     File.read(
       filename_to_path(
         'profile/1234/loop/76046/document/561622/AgencyDisclosureStatementSeller.pdf'
-      )
+      ),
+      encoding: Encoding::ASCII_8BIT
     )
   end
 
