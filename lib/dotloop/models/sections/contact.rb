@@ -39,8 +39,6 @@ module Dotloop
         alias_method :mortgage_company_rep, :name
         alias_method :office_phone=, :phone=
         alias_method :office_phone, :phone
-        alias_method :office_phone=, :unit_number=
-        alias_method :office_phone, :unit_number
         alias_method :postal_code=, :zip_or_postal_code=
         alias_method :postal_code, :zip_or_postal_code
         alias_method :state_or_province=, :state_prov=
