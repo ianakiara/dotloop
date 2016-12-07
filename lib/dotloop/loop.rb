@@ -51,9 +51,5 @@ module Dotloop
         createdByMe:         created_by_me(options)
       }.delete_if { |_, v| should_delete(v) }
     end
-
-    def to_key(key)
-      key.to_s.downcase.delete('^a-z ').strip.tr(' ', '_')
-    end
   end
 end

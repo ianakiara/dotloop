@@ -5,7 +5,6 @@ module Dotloop
         include Virtus.model
         attribute :transaction_number
         attribute :type
-        #attribute :class
       end
     end
   end

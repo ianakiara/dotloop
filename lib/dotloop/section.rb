@@ -27,7 +27,6 @@ module Dotloop
     end
 
     def build_contact(key, values)
-      binding.pry if key == 'listing_agent'
       Dotloop::Models::Sections::Contact.new(values.merge(role: key))
     end
 
