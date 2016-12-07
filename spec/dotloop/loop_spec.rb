@@ -90,42 +90,19 @@ RSpec.describe Dotloop::Loop do
       sections = loop_detail.sections
       expect(loop_detail).to be_a(Dotloop::Models::LoopDetail)
       expect(loop_detail.loop_id).to eq 274_231
-      expect(sections.financials).to have_attributes(
-        comission_rate: '7%',
-        current_price: '425000',
-        earnest_money_held_by: 'Steve',
-        original_listing_price: '500,000',
-        purchase_price: '400,000'
-      )
-      expect(sections.buying_brokerage).to have_attributes(
-        city: 'LA',
-        name: %(Bob's Buying Brokerage),
-        postal_code: '90210',
-        state_or_province: 'CA',
-        street_name: 'Mockingbird Ln',
-        street_number: '1313',
-        suite: '#1'
-      )
-      expect(sections.listing_brokerage).to have_attributes(
-        city: 'Cincinnati',
-        name: 'DotLoop Final Review',
-        office_phone: '',
-        postal_code: '45242',
-        state_or_province: 'OH',
-        street_name: 'Lake Forest Dr.',
-        street_number: '4445'
-      )
-      expect(sections.property_address).to have_attributes(
-        city: 'lauderdale',
-        country: 'USA',
-        mls_number: '1234567890',
-        postal_code: '32123',
-        property_address_country: 'USA',
-        state_or_province: 'KS',
-        street_name: 'manor ',
-        street_number: '1234'
-      )
+      expect(sections).to be_a(Dotloop::Models::Section)
+      expect(sections.contract_dates).to be_a(Dotloop::Models::Sections::ContractDates)
+      expect(sections.contract_info).to be_a(Dotloop::Models::Sections::ContractInfo)
+      expect(sections.financials).to be_a(Dotloop::Models::Sections::Financials)
+      expect(sections.geographic_description).to be_a(Dotloop::Models::Sections::GeographicDescription)
+      expect(sections.listing_information).to be_a(Dotloop::Models::Sections::ListingInformation)
+      expect(sections.offer_dates).to be_a(Dotloop::Models::Sections::OfferDates)
+      expect(sections.property).to be_a(Dotloop::Models::Sections::Property)
+      expect(sections.property_address).to be_a(Dotloop::Models::Sections::PropertyAddress)
+      expect(sections.referral).to be_a(Dotloop::Models::Sections::Referral)
+      expect(sections.contacts).to all(be_a(Dotloop::Models::Sections::Contact))
     end
+
     it 'finds a single loop detail by id when the sections are empty' do
       dotloop_mock(:loop2_detail)
       loop_detail = subject.detail(profile_id: 1234, loop_view_id: 76_047)

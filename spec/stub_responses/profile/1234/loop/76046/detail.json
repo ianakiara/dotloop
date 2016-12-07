@@ -1,40 +1,297 @@
 {
-    "loopId": 274231,
-    "sections": {
-        "Buying Brokerage": {
-            "city": "LA",
-            "name": "Bob's Buying Brokerage",
-            "postalCode": "90210",
-            "stateOrProvince": "CA",
-            "streetName": "Mockingbird Ln",
-            "streetNumber": "1313",
-            "suite": "#1"
-        },
-        "Financials": {
-            "comissionRate": "7%",
-            "currentPrice": "425000",
-            "earnestMoneyHeldBy": "Steve",
-            "originalListingPrice": "500,000",
-            "purchasePrice": "400,000"
-        },
-        "Listing Brokerage": {
-            "city": "Cincinnati",
-            "name": "DotLoop Final Review",
-            "officePhone": "",
-            "postalCode": "45242",
-            "stateOrProvince": "OH",
-            "streetName": "Lake Forest Dr.",
-            "streetNumber": "4445"
-        },
-        "Property Address": {
-            "city": "lauderdale",
-            "country": "USA",
-            "mlsNumber": "1234567890",
-            "postalCode": "32123",
-            "propertyAddressCountry": "USA",
-            "stateOrProvince": "KS",
-            "streetName": "manor ",
-            "streetNumber": "1234"
-        }
-    }
+  "loopId": 274231,
+	"sections": {
+		"Listing Agent": {
+			"Phone": "555-555-5555",
+			"Unit Number": "12",
+			"Cell Phone": "555-555-5555",
+			"Fax": "555-555-5555",
+			"Zip/Postal Code": "45202",
+			"Country": "USA",
+			"City": "Cincinnati",
+			"Name": "Annie Agent",
+			"State/Prov": "OH",
+			"Email": "agent2@example.com",
+			"License #": "987654321",
+			"ID": "12345",
+			"Company Name": "ListingGroup",
+			"Street Number": "12",
+			"Street Name": "Twelve Street"
+		},
+		"Transaction Coordinator": {
+			"Name": "Tranny C O Ordinator",
+			"Email": "coordinator@example.com",
+			"Country": "USA"
+		},
+		"Insurance Rep": {
+			"Name": "In Surance",
+			"Email": "insurance@example.com",
+			"Country": "USA"
+		},
+		"Appraiser": {
+			"Name": "Appy Praiser",
+			"Email": "appraiser@example.com",
+			"Country": "USA"
+		},
+		"Geographic Description": {
+			"subdivision": "NorthWoodshire Division",
+			"mlsLegalDescription": "LOT#98765",
+			"deedBook": "DeedBook 4",
+			"mapGrid": "MAPGRID1",
+			"deedPage": "Deedpag123",
+			"block": "Bock9292",
+			"lot": "987654",
+			"addition": "Addition32",
+			"mlsArea": "MLSAREA1",
+			"section": "Section8"
+		},
+		"Listing Broker": {
+			"Email": "utilprovider@example.com",
+			"name": "Usef Provi",
+			"Country": "USA"
+		},
+		"Managing Broker": {
+			"Name": "Martin Manager",
+			"State/Prov": "OH",
+			"Unit Number": "2",
+			"Phone": "555-555-5555",
+			"Cell Phone": "555-555-5555",
+			"Email": "manager@example.com",
+			"License #": "987654321",
+			"Zip/Postal Code": "45202",
+			"ID": "12345",
+			"Street Number": "42",
+			"Company Name": "Admin Brokerage",
+			"Country": "USA",
+			"City": "Cincinnati",
+			"Street Name": "Life Street"
+		},
+		"Property": {
+			"Bedrooms": "4",
+			"YearBuilt": "2003",
+			"SquareFootage": "2300",
+			"Type": "Residential Attached",
+			"Bathrooms": "2",
+			"SchoolDistrict": "Cincinnati School District",
+			"Lot Size": "10000"
+		},
+		"Home Warranty": {
+			"homeWarrantyEmail": "homewarranty@example.com",
+			"Phone": "555-555-5555",
+			"Unit Number": "2",
+			"Cell Phone": "555-555-5555",
+			"homeWarrantyCompany": "Waranty Guys",
+			"Zip/Postal Code": "45202",
+			"Country": "USA",
+			"City": "Cincinnati",
+			"State/Prov": "OH",
+			"License #": "98765432",
+			"ID": "1234",
+			"Street Number": "2",
+			"homeWarrantyRep": "Warren Home",
+			"Street Name": "Guy Road"
+		},
+		"Admin": {
+			"Name": "Andy Admin",
+			"State/Prov": "OH",
+			"Phone": "555-555-5555",
+			"StreetName": "Admin Street",
+			"Zip/PostalCode": "45202",
+			"ID": "99887766",
+			"StreetNumber": "413",
+			"CompanyName": "Admin Brokerage",
+			"Country": "USA",
+			"License#": "987654321",
+			"City": "Cincinnati"
+		},
+		"Loan Officer": {
+			"Phone": "555-555-5555",
+			"Unit Number": "44",
+			"Cell Phone": "555-555-5555",
+			"mortgageCompany": "Cash Money Loans",
+			"Zip/Postal Code": "45202",
+			"Country": "USA",
+			"City": "Cincinnati",
+			"State/Prov": "OH",
+			"License #": "12345",
+			"ID": "12345",
+			"mortgageCompanyRep": "Loan Officer",
+			"mortgageCompanyEmail": "loanofficer@example.com",
+			"Street Number": "69",
+			"Street Name": "Shark Street"
+		},
+		"Buying Agent": {
+			"Phone": "555-555-5555",
+			"Unit Number": "#1a",
+			"Cell Phone": "555-555-5555",
+			"Fax": "555-555-5555",
+			"Zip/Postal Code": "45202",
+			"Country": "USA",
+			"City": "Cincinnati",
+			"Name": "Randy Remax",
+			"State/Prov": "OH",
+			"Email": "otheragent@example.com",
+			"License #": "987654321",
+			"ID": "123456",
+			"Company Name": "Randys Remax",
+			"Street Number": "5555",
+			"Street Name": "Five Street"
+		},
+		"Buying Broker": {
+			"Cell Phone": "555-555-5555",
+			"Fax": "555-555-5555",
+			"streetName": "Five Street",
+			"Country": "USA",
+			"officePhone": "555-555-5555",
+			"city": "Cincinnati",
+			"postalCode": "45202",
+			"Email": "ob@example.com",
+			"License #": "987654321",
+			"name": "Oscar Outside",
+			"ID": "123456",
+			"streetNumber": "5555",
+			"stateOrProvince": "OH",
+			"Company Name": "Randys Remax",
+			"suite": "2a"
+		},
+		"Moving \u0026 storage": {
+			"Name": "Maximillian Mover",
+			"Email": "mover@example.com",
+			"Country": "USA"
+		},
+		"Offer Dates": {
+			"OfferDate": "12/06/2016",
+			"inspectionDate": "12/06/2016",
+			"OccupancyDate": "12/31/2016",
+			"OfferExpirationDate": "12/08/2016"
+		},
+		"Inspector": {
+			"Phone": "555-555-5555",
+			"Unit Number": "B",
+			"Cell Phone": "555-555-5555",
+			"inspectionCompany": "Inspector Gadgets",
+			"Zip/Postal Code": "45202",
+			"Country": "USA",
+			"inspectionCompanyRep": "Inspector Gadget",
+			"City": "Cincinnati",
+			"State/Prov": "OH",
+			"email": "inspector@example.com",
+			"License #": "1234",
+			"ID": "1234",
+			"Street Number": "221",
+			"Street Name": "Baker Street"
+		},
+		"Contract Dates": {
+			"contractDate": "12/06/2016",
+			"closingDate": "12/15/2016"
+		},
+		"Buyer": {
+			"Phone": "555-555-5555",
+			"Unit Number": "8",
+			"Cell Phone": "555-555-5555",
+			"Zip/Postal Code": "45202",
+			"Country": "USA",
+			"City": "Cincinnati",
+			"Name": "Billy Buyer",
+			"Marital Status": "Married",
+			"State/Prov": "OH",
+			"Email": "buyer@example.com",
+			"Company Name": "Buyer Company",
+			"Street Number": "88",
+			"Street Name": "Keys Street"
+		},
+		"Contract Info": {
+			"class": "ListClass",
+			"transactionNumber": "TRANS98765",
+			"type": "ListType"
+		},
+		"Referral": {
+			"ReferralSource": "Rene Referral",
+			"ReferralPercentage": "1"
+		},
+		"Financials": {
+			"earnestMoneyHeldBy": "Best Trust Company",
+			"comissionRate": "4",
+			"EarnestMoneyAmount": "16000",
+			"SaleCommissionTotal": "14000",
+			"BuySideSaleCommissionSplit": "2",
+			"Sale Commission Split $ - Sell Side": "7000",
+			"SellSideSaleCommissionSplit": "2",
+			"Sale Commission Split $ - Buy Side": "7000",
+			"purchasePrice": "350000"
+		},
+		"Escrow/Title": {
+			"titleCompanyEmail": "escrow@example.com",
+			"Country": "USA",
+			"titleCompanyRep": "Bear Crow"
+		},
+		"Seller": {
+			"Phone": "555-555-5555",
+			"Unit Number": "33",
+			"Cell Phone": "555-555-5555",
+			"Zip/Postal Code": "45202",
+			"Country": "USA",
+			"City": "Cincinnati",
+			"Name": "Sally Seller",
+			"Marital Status": "Single",
+			"State/Prov": "OH",
+			"Email": "seller@example.com",
+			"Company Name": "Sellers Company",
+			"Street Number": "1234",
+			"Street Name": "Wendy Street"
+		},
+		"Home Security Provider": {
+			"Name": "Tash Yar",
+			"Email": "security@example.com",
+			"Country": "USA"
+		},
+		"Seller's Attorney": {
+			"Name": "Sell Attorney",
+			"Email": "selllawyer@example.com",
+			"Country": "USA"
+		},
+		"Property Address": {
+			"mlsNumber": "MLS3838",
+			"propertyAddressCountry": "USA",
+			"postalCode": "45202",
+			"county": "district of Cincinnati",
+			"unitNumber": "1",
+			"Parcel_TaxID": "TAXID9876",
+			"stateOrProvince": "OH",
+			"streetName": "Walter Street",
+			"streetNumber": "1234",
+			"city": "Cincinnati"
+		},
+		"Loan Processor": {
+			"Name": "Loan Processor",
+			"Email": "loanproc@example.com",
+			"Country": "USA"
+		},
+		"Listing Information": {
+			"PropertyExcludes": "Removable Sauna",
+			"DescriptionOfOtherLiens": "Lien on Shed",
+			"expirationDate": "12/31/2016",
+			"listingDate": "12/06/2016",
+			"TotalEncumbrances": "60",
+			"PropertyIncludes": "Fridge,Stove,Washer,Dryer",
+			"Remarks": "some remarks",
+			"currentPrice": "350000",
+			"FirstMortgageBalance": "210000",
+			"HomeownerAssociation": "CMHC",
+			"SecondMortgageBalance": "1",
+			"originalListingPrice": "379999",
+			"OtherLiens": "1",
+			"HomeownerAssociationDues": "50"
+		},
+		"Buyer's Attorney": {
+			"Name": "Buy Attorney",
+			"Email": "buylawyer@example.com",
+			"Country": "USA"
+		},
+		"Home Inspector": {
+			"Name": "Home Inspector",
+			"Email": "homeinspector@example.com",
+			"Country": "USA"
+		}
+	}
 }

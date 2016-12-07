@@ -32,18 +32,11 @@ module Dotloop
 
     def detail(profile_id:, loop_view_id:)
       loop_detail = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}/detail")
-      loop_detail[:sections] = fixed_sections(loop_detail[:sections])
+      loop_detail[:sections] = Dotloop::Section.call(loop_detail[:sections]) if loop_detail[:sections]
       Dotloop::Models::LoopDetail.new(loop_detail)
     end
 
     private
-
-    def fixed_sections(sections)
-      return unless sections
-      sections.each_with_object({}) do |item, memo|
-        memo[item[0].to_s.downcase.tr(' ', '_')] = item[1]
-      end
-    end
 
     def query_params(options)
       {
@@ -57,6 +50,10 @@ module Dotloop
         tagNames:            options[:tag_names],
         createdByMe:         created_by_me(options)
       }.delete_if { |_, v| should_delete(v) }
+    end
+
+    def to_key(key)
+      key.to_s.downcase.delete('^a-z ').strip.tr(' ', '_')
     end
   end
 end
