@@ -12,6 +12,7 @@
             "405247",
             "405260"
         ],
+        "tags": ["test tag"],
         "signatureVerficationLink": "DL5616224301S"
     },
     {
@@ -27,6 +28,7 @@
             "405247",
             "405260"
         ],
+        "tags": ["test tag", "test tag2"],
         "signatureVerficationLink": "DL56162131X3D"
     }
 ]

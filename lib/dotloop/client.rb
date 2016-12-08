@@ -64,10 +64,6 @@ module Dotloop
       @person ||= Dotloop::Person.new(client: self)
     end
 
-    def Admin
-      @admin ||= Dotloop::Admin.new(client: self)
-    end
-
     def self.snakify(hash)
       if hash.is_a? Array
         hash.map(&:to_snake_keys)

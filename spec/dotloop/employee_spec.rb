@@ -25,10 +25,8 @@ RSpec.describe Dotloop::Employee do
         first_name: 'Scott',
         is_admin: false,
         last_name: 'Murphy',
-        loops_created: 4,
-        member_id: 294_132,
         status: 'ACTIVE',
-        total_loops: 5
+        user_id: 294_132
       )
     end
   end

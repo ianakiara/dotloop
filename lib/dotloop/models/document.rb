@@ -11,6 +11,7 @@ module Dotloop
       attribute :loop_id, Integer
       attribute :shared_with, Array[Integer]
       attribute :signature_verfication_link
+      attribute :tags, Array
       attr_accessor :client
     end
   end

@@ -29,6 +29,7 @@ RSpec.describe Dotloop::Document do
         last_modified_date: DateTime.parse('2014-08-25T18:33:46-04:00'),
         created_date: DateTime.parse('2014-08-25T23:29:31-04:00'),
         shared_with: [405_246, 405_247, 405_260],
+        tags: ['test tag'],
         signature_verfication_link: 'DL5616224301S'
       )
     end
