@@ -32,7 +32,7 @@ module Dotloop
 
     def detail(profile_id:, loop_view_id:)
       loop_detail = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}/detail")
-      loop_detail[:sections] = Dotloop::Section.call(loop_detail[:sections]) if loop_detail[:sections]
+      loop_detail[:sections] = Dotloop::Section.new(loop_detail[:sections]).sections if loop_detail[:sections]
       Dotloop::Models::LoopDetail.new(loop_detail)
     end
 

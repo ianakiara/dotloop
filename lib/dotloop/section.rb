@@ -1,18 +1,18 @@
 module Dotloop
   class Section
-    FIXED_SECTIONS = %w(
+    attr_accessor :sections
+    FIXED_SECTIONS = %i(
       contract_dates contract_info financials geographic_description listing_information
       offer_dates property_address property referral
     ).freeze
 
-    def self.call(data)
-      new.call(data)
+    def initialize(data)
+      @sections = FIXED_SECTIONS.each_with_object({}) { |key, memo| memo[key] = {} }.merge(contacts: [])
+      parse_data(data)
     end
 
-    def call(data)
-      @sections = { contacts: [] }
+    def parse_data(data)
       fix_hash_keys(data).each { |item| build_section(item[0], item[1]) }
-      @sections
     end
 
     private
@@ -20,18 +20,18 @@ module Dotloop
     def build_section(key, section_data)
       values = fix_hash_keys(section_data)
       if FIXED_SECTIONS.include?(key)
-        @sections[key.to_sym] = values
+        @sections[key] = values
       else
         @sections[:contacts] << build_contact(key, map_contact_keys(values))
       end
     end
 
     def build_contact(key, values)
-      Dotloop::Models::Sections::Contact.new(values.merge(role: key))
+      Dotloop::Models::Sections::Contact.new(values.merge(role: key.to_s))
     end
 
     def index_to_key(index)
-      index.to_s.downcase.delete(%(')).gsub(/[^a-z]/, '_').squeeze('_').gsub(/^_*/, '').gsub(/_*$/, '')
+      index.to_s.downcase.delete(%(')).gsub(/[^a-z]/, '_').squeeze('_').gsub(/^_*/, '').gsub(/_*$/, '').to_sym
     end
 
     def fix_hash_keys(bad_hash)
