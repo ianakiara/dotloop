@@ -17,7 +17,7 @@ RSpec.describe Dotloop::Person do
   describe '#all' do
     it 'should return a list of persons' do
       dotloop_mock_batch(:persons)
-      persons = subject.all(profile_id: 1234)
+      persons = subject.all
       expect(persons.size).to eq(52)
       expect(persons).to all(be_a(Dotloop::Models::Person))
       expect(persons.first).to have_attributes(
@@ -32,7 +32,7 @@ RSpec.describe Dotloop::Person do
   describe '#find' do
     it 'should return a single person' do
       dotloop_mock(:person)
-      person = subject.find(profile_id: 1234, person_id: 3_603_862)
+      person = subject.find(person_id: 3_603_862)
       expect(person).to be_a(Dotloop::Models::Person)
       expect(person).to have_attributes(
         city: 'Richardson',
