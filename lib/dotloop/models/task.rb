@@ -8,6 +8,7 @@ module Dotloop
       attribute :due_date, DateTime
       attribute :due_date_type, DateTime
       attribute :list_id, Integer
+      attribute :assigned_to_person, Integer
       attribute :list_name
       attribute :locked_status
       attribute :name

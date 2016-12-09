@@ -5,7 +5,7 @@
         "isAdmin": "false",
         "lastName": "Murphy",
         "loopsCreated": 4,
-        "memberId": 294132,
+        "userId": 294132,
         "status": "ACTIVE",
         "totalLoops": 5
     },
@@ -15,7 +15,7 @@
         "isAdmin": "false",
         "lastName": "Murphy",
         "loopsCreated": 1,
-        "memberId": 290767,
+        "userId": 290767,
         "status": "ACTIVE",
         "totalLoops": 1
     }

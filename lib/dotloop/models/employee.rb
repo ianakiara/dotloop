@@ -6,10 +6,8 @@ module Dotloop
       attribute :first_name
       attribute :is_admin, Boolean
       attribute :last_name
-      attribute :loops_created, Integer
-      attribute :member_id, Integer
       attribute :status
-      attribute :total_loops, Integer
+      attribute :user_id, Integer
     end
   end
 end

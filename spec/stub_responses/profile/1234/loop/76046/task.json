@@ -6,6 +6,7 @@
         "dueDate": "2013-04-16T00:00:00-04:00",
         "dueDateType": "2013-04-16T00:00:00-04:00",
         "listId": 208,
+        "assignedToPerson": 9876,
         "listName": "My Tasks",
         "lockedStatus": "N",
         "name": "Task New"

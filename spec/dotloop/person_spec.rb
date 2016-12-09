@@ -35,17 +35,10 @@ RSpec.describe Dotloop::Person do
       person = subject.find(person_id: 3_603_862)
       expect(person).to be_a(Dotloop::Models::Person)
       expect(person).to have_attributes(
-        city: 'Richardson',
         email: 'brianerwin@newkyhome.com',
-        fax: '1118655686',
         first_name: 'Brian',
-        homephone: '2138936332',
         last_name: 'Erwin',
-        officephone: '1121213656',
-        person_id: 3_603_862,
-        state_or_prov: 'TX',
-        street_address01: '2100 Waterview dr',
-        zip_or_postal_code: '75081'
+        person_id: 3_603_862
       )
     end
   end

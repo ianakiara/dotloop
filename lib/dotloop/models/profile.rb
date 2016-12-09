@@ -23,6 +23,10 @@ module Dotloop
       def loops
         client.Loop.all(profile_id: profile_id)
       end
+
+      def employees
+        client.Employee.all(profile_id: profile_id)
+      end
     end
   end
 end

@@ -57,7 +57,7 @@ module Helpers
       tasks:           'profile/1234/loop/76046/task',     participants:        'profile/1234/loop/76046/participant',
       folders:         'profile/1234/loop/76046/folder',   person:              'person/3603862',
       employees:       'profile/1234/employee',            document_activities: 'profile/1234/document/561622/activity',
-      admins:          'profile/1234/admin',               persons:             'person'
+      persons:         'person'
     }[lookup.to_sym]
   end
 end

@@ -26,7 +26,7 @@ RSpec.describe Dotloop::Client do
     context 'without an api key' do
       let(:api_key) { nil }
       it 'the constuctor should whine' do
-        expect { subject }.to raise_error
+        expect { subject }.to raise_error RuntimeError
       end
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe Dotloop::Client do
       let(:code) { 234 }
       it 'should raise an error if the response code is not 200' do
         expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
-        expect { subject.get('foo') }.to raise_error
+        expect { subject.get('foo') }.to raise_error RuntimeError
       end
     end
 
@@ -140,12 +140,6 @@ RSpec.describe Dotloop::Client do
   describe '#Person' do
     it 'should return a Person object' do
       expect(subject.Person).to be_a(Dotloop::Person)
-    end
-  end
-
-  describe '#Admin' do
-    it 'should return a Admin object' do
-      expect(subject.Admin).to be_a(Dotloop::Admin)
     end
   end
 end
