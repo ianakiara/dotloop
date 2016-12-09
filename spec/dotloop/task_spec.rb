@@ -27,6 +27,7 @@ RSpec.describe Dotloop::Task do
         due_date: DateTime.parse('2013-04-16T00:00:00-04:00'),
         due_date_type: DateTime.parse('2013-04-16T00:00:00-04:00'),
         list_id: 208,
+        assigned_to_person: 9876,
         list_name: 'My Tasks',
         locked_status: 'N',
         name: 'Task New'
