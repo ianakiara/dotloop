@@ -10,6 +10,8 @@ module Dotloop
       @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}/document").map do |document_attrs|
         doc = Dotloop::Models::Document.new(document_attrs)
         doc.client = client
+        doc.profile_id = profile_id.to_i
+        doc.loop_view_id = loop_view_id.to_i
         doc
       end
     end

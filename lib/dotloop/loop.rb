@@ -21,13 +21,19 @@ module Dotloop
 
     def batch(options = {})
       @client.get("/profile/#{profile_id(options)}/loop", query_params(options)).map do |attrs|
-        Dotloop::Models::Loop.new(attrs)
+        lp = Dotloop::Models::Loop.new(attrs)
+        lp.client = client
+        lp.profile_id = profile_id(options)
+        lp
       end
     end
 
     def find(profile_id:, loop_view_id:)
       loop_data = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}")
-      Dotloop::Models::Loop.new(loop_data)
+      lp = Dotloop::Models::Loop.new(loop_data)
+      lp.client = client
+      lp.profile_id = profile_id.to_i
+      lp
     end
 
     def detail(profile_id:, loop_view_id:)
