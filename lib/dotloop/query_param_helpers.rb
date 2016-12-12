@@ -41,7 +41,7 @@ module Dotloop
     end
 
     def status_ids(options)
-      [options[:status_ids]].flatten.map(&:to_i).delete_if(&:zero?).compact
+      [options[:statuses]].flatten.map { |status| Dotloop::Loop::STATUS_MAP[status&.to_sym] }.compact
     end
 
     def compliance_status_ids(options)
