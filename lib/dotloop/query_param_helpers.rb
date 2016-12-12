@@ -13,7 +13,7 @@ module Dotloop
     end
 
     def should_delete(value)
-      value.nil? || (value.is_a?(Array) && value.empty?) || (value.is_a?(Integer) && value.zero?)
+      value.nil? || (value.is_a?(Integer) && value.zero?) || (value.is_a?(String) && value.size.zero?)
     end
 
     def profile_id(options)
@@ -41,15 +41,15 @@ module Dotloop
     end
 
     def status_ids(options)
-      [options[:statuses]].flatten.map { |status| Dotloop::Loop::STATUS_MAP[status&.to_sym] }.compact
+      [options[:statuses]].flatten.map { |status| Dotloop::Loop::STATUS_MAP[status&.to_sym] }.compact.join(',')
     end
 
     def compliance_status_ids(options)
-      [options[:compliance_status_ids]].flatten.map(&:to_i).delete_if(&:zero?).compact
+      [options[:compliance_status_ids]].flatten.map(&:to_i).delete_if(&:zero?).compact.join(',')
     end
 
     def tag_ids(options)
-      [options[:tag_ids]].flatten.map(&:to_i).delete_if(&:zero?).compact
+      [options[:tag_ids]].flatten.map(&:to_i).delete_if(&:zero?).compact.join(',')
     end
 
     def created_by_me(options)
