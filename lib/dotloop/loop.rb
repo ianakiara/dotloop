@@ -3,6 +3,17 @@ module Dotloop
     include Dotloop::QueryParamHelpers
     attr_accessor :client
 
+    STATUS_MAP = {
+      private_listing: 1,
+      active_listing:  2,
+      under_contract:  3,
+      sold:            4,
+      leased:          5,
+      archived:        6,
+      pre_listing:     7,
+      pre_offer:       8
+    }.freeze
+
     def initialize(client:)
       @client = client
     end
@@ -40,6 +51,14 @@ module Dotloop
       loop_detail = @client.get("/profile/#{profile_id.to_i}/loop/#{loop_view_id.to_i}/detail")
       loop_detail[:sections] = Dotloop::Section.new(loop_detail[:sections]).sections if loop_detail[:sections]
       Dotloop::Models::LoopDetail.new(loop_detail)
+    end
+
+    def self.statuses
+      STATUS_MAP.keys
+    end
+
+    def statuses
+      self.class.statuses
     end
 
     private

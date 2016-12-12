@@ -54,7 +54,7 @@ RSpec.describe Dotloop::Loop do
       ).and_return([])
       subject.all(
         profile_id: '1234',
-        status_ids: [1, 2, 3],
+        statuses: %i(private_listing active_listing under_contract),
         compliance_status_ids: [3, 4, 5],
         tag_ids: [6, 7, 8],
         sort_by: 'sort me',
@@ -111,5 +111,10 @@ RSpec.describe Dotloop::Loop do
       expect(loop_detail.loop_id).to eq 274_232
       expect(sections).to be_nil
     end
+  end
+
+  describe '#statuses' do
+    let(:status_list) { %i(private_listing active_listing under_contract sold leased archived pre_listing pre_offer) }
+    it { expect(subject.statuses).to match_array(status_list) }
   end
 end

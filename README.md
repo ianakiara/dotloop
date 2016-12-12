@@ -35,7 +35,7 @@ Optional parameters are prefixed with a __'*'__'
       profile_id: '1234',
       *batch_number: 1,
       *batch_size: 50,
-      *statusIds: '1,2,3'
+      *statuses: [:private_listing, :active_listing, :sold],
       *complianceStatusIds: '1,2,3'
       *tagIds: '1,2,3'
       *sortBy: 'email'
