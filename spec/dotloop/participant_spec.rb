@@ -22,7 +22,7 @@ RSpec.describe Dotloop::Participant do
       expect(participants).to all(be_a(Dotloop::Models::Participant))
       expect(participants.first).to have_attributes(
         email: 'new2_person@email.com',
-        member_of_my_team: 'N',
+        member_of_my_team: false,
         name: 'New Person',
         participant_id: 3_600_616,
         role: 'None'
