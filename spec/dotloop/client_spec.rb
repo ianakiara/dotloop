@@ -1,5 +1,6 @@
 require_relative '../spec_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Dotloop::Client do
   let(:api_key) { 'blah' }
   let(:application) { 'bloh' }

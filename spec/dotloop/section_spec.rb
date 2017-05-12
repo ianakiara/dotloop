@@ -1,5 +1,6 @@
 require_relative '../spec_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Dotloop::Section do
   let(:client) { Dotloop::Client.new(api_key: SecureRandom.uuid) }
   let(:loop) { Dotloop::Loop.new(client: client) }

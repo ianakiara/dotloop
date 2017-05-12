@@ -1,10 +1,10 @@
 module Dotloop
   class Section
     attr_accessor :sections
-    FIXED_SECTIONS = %i(
+    FIXED_SECTIONS = %i[
       contract_dates contract_info financials geographic_description listing_information
       offer_dates property_address property referral
-    ).freeze
+    ].freeze
 
     def initialize(data)
       @sections = FIXED_SECTIONS.each_with_object({}) { |key, memo| memo[key] = {} }.merge(contacts: [])
