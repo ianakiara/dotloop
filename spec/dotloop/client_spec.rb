@@ -1,5 +1,6 @@
 require_relative '../spec_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Dotloop::Client do
   let(:api_key) { 'blah' }
   let(:application) { 'bloh' }
@@ -53,7 +54,23 @@ RSpec.describe Dotloop::Client do
       let(:code) { 234 }
       it 'should raise an error if the response code is not 200' do
         expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
-        expect { subject.get('foo') }.to raise_error RuntimeError
+        expect { subject.get('foo') }.to raise_error StandardError
+      end
+    end
+
+    context 'when there is a 401 error' do
+      let(:code) { 401 }
+      it 'should raise an Unauthorized error' do
+        expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
+        expect { subject.get('foo') }.to raise_error Dotloop::Unauthorized
+      end
+    end
+
+    context 'when there is a 403 error' do
+      let(:code) { 403 }
+      it 'should raise an Forbidden error' do
+        expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
+        expect { subject.get('foo') }.to raise_error Dotloop::Forbidden
       end
     end
 

@@ -1,5 +1,6 @@
 require_relative '../../spec_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Dotloop::Models::Loop do
   let(:profile_id) { 1234 }
   let(:loop_view_id) { 76_046 }

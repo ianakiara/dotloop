@@ -1,5 +1,6 @@
 require_relative '../spec_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Dotloop::Loop do
   let(:client) { Dotloop::Client.new(api_key: SecureRandom.uuid) }
   subject { Dotloop::Loop.new(client: client) }
@@ -54,7 +55,7 @@ RSpec.describe Dotloop::Loop do
       ).and_return([])
       subject.all(
         profile_id: '1234',
-        statuses: %i(private_listing active_listing under_contract),
+        statuses: %i[private_listing active_listing under_contract],
         compliance_status_ids: [3, 4, 5],
         tag_ids: [6, 7, 8],
         sort_by: 'sort me',
@@ -114,7 +115,7 @@ RSpec.describe Dotloop::Loop do
   end
 
   describe '#statuses' do
-    let(:status_list) { %i(private_listing active_listing under_contract sold leased archived pre_listing pre_offer) }
+    let(:status_list) { %i[private_listing active_listing under_contract sold leased archived pre_listing pre_offer] }
     it { expect(subject.statuses).to match_array(status_list) }
   end
 end

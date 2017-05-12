@@ -16,6 +16,7 @@ require 'dotloop/loop_activity'
 require 'dotloop/participant'
 require 'dotloop/person'
 require 'dotloop/task'
+require 'dotloop/exceptions'
 
 require 'dotloop/models/document'
 require 'dotloop/models/document_activity'
