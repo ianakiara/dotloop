@@ -16,6 +16,7 @@ require 'dotloop/loop_activity'
 require 'dotloop/participant'
 require 'dotloop/person'
 require 'dotloop/task'
+require 'dotloop/exceptions'
 
 require 'dotloop/models/document'
 require 'dotloop/models/document_activity'
@@ -41,9 +42,6 @@ require 'dotloop/models/sections/property'
 require 'dotloop/models/sections/referral'
 require 'dotloop/models/section'
 require 'dotloop/models/loop_detail'
-
-require 'dotloop/errors/client/unauthorized'
-require 'dotloop/errors/client/forbidden'
 
 module Dotloop
   # Your code goes here...

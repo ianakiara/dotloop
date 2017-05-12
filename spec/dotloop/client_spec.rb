@@ -62,7 +62,7 @@ RSpec.describe Dotloop::Client do
       let(:code) { 401 }
       it 'should raise an Unauthorized error' do
         expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
-        expect { subject.get('foo') }.to raise_error Dotloop::Errors::Client::Unauthorized
+        expect { subject.get('foo') }.to raise_error Dotloop::Unauthorized
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe Dotloop::Client do
       let(:code) { 403 }
       it 'should raise an Forbidden error' do
         expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
-        expect { subject.get('foo') }.to raise_error Dotloop::Errors::Client::Forbidden
+        expect { subject.get('foo') }.to raise_error Dotloop::Forbidden
       end
     end
 

@@ -27,9 +27,9 @@ module Dotloop
     def handle_dotloop_error(response_code)
       error = case response_code
               when 401
-                Dotloop::Errors::Client::Unauthorized
+                Dotloop::Unauthorized
               when 403
-                Dotloop::Errors::Client::Forbidden
+                Dotloop::Forbidden
               else
                 StandardError
               end
