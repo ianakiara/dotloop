@@ -25,9 +25,14 @@ module Dotloop
     end
 
     def handle_dotloop_error(response_code)
-      error = StandardError
-      error = Dotloop::Errors::Client::Unauthorized if response_code == 401
-      error = Dotloop::Errors::Client::Forbidden if response_code == 403
+      error = case response_code
+              when 401
+                Dotloop::Errors::Client::Unauthorized
+              when 403
+                Dotloop::Errors::Client::Forbidden
+              else
+                StandardError
+              end
       raise error, "Error communicating: Response code #{response_code}"
     end
 
