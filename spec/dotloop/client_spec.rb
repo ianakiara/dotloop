@@ -53,7 +53,23 @@ RSpec.describe Dotloop::Client do
       let(:code) { 234 }
       it 'should raise an error if the response code is not 200' do
         expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
-        expect { subject.get('foo') }.to raise_error RuntimeError
+        expect { subject.get('foo') }.to raise_error StandardError
+      end
+    end
+
+    context 'when there is a 401 error' do
+      let(:code) { 401 }
+      it 'should raise an Unauthorized error' do
+        expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
+        expect { subject.get('foo') }.to raise_error Dotloop::Errors::Client::Unauthorized
+      end
+    end
+
+    context 'when there is a 403 error' do
+      let(:code) { 403 }
+      it 'should raise an Forbidden error' do
+        expect(subject.class).to receive(:get).with('foo', anything).and_return(response)
+        expect { subject.get('foo') }.to raise_error Dotloop::Errors::Client::Forbidden
       end
     end
 
