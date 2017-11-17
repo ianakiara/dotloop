@@ -3,7 +3,7 @@ module Dotloop
     class Loop
       include Virtus.model
       attribute :created_by, Integer
-      attribute :last_updated, DateTime
+      attribute :last_updated, Time
       attribute :loop_id, Integer
       attribute :loop_name
       attribute :loop_status

@@ -3,11 +3,11 @@ module Dotloop
     class Document
       include Virtus.model
       attribute :created_by, Integer
-      attribute :created_date, DateTime
+      attribute :created_date, Time
       attribute :document_id, Integer
       attribute :document_name
       attribute :folder_name
-      attribute :last_modified_date, DateTime
+      attribute :last_modified_date, Time
       attribute :loop_id, Integer
       attribute :shared_with, Array[Integer]
       attribute :signature_verfication_link
