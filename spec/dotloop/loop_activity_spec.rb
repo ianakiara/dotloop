@@ -22,7 +22,7 @@ RSpec.describe Dotloop::LoopActivity do
       expect(loop_activity.size).to eq(57)
       expect(loop_activity).to all(be_a(Dotloop::Models::LoopActivity))
       expect(loop_activity.first).to have_attributes(
-        activity_date: DateTime.parse('2014-01-09T13:10:14-05:00'),
+        activity_date: Time.parse('2014-01-09T13:10:14-05:00'),
         message: 'K Fouts (Admin for DotLoop Final Review) viewed document <activity action="contracteditor" viewId="76046" documentId="129497">Agency Disclosure Statement Seller</activity>'
       )
     end

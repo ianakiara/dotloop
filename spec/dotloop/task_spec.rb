@@ -24,9 +24,9 @@ RSpec.describe Dotloop::Task do
       expect(tasks.first).to have_attributes(
         completion_status: 'N',
         created_by: 3_104_719,
-        created_date: DateTime.parse('2013-04-30T08:32:43-04:00'),
-        due_date: DateTime.parse('2013-04-16T00:00:00-04:00'),
-        due_date_type: DateTime.parse('2013-04-16T00:00:00-04:00'),
+        created_date: Time.parse('2013-04-30T08:32:43-04:00'),
+        due_date: Time.parse('2013-04-16T00:00:00-04:00'),
+        due_date_type: Time.parse('2013-04-16T00:00:00-04:00'),
         list_id: 208,
         assigned_to_person: 9876,
         list_name: 'My Tasks',

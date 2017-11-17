@@ -27,8 +27,8 @@ RSpec.describe Dotloop::Document do
         document_name: 'AgencyDisclosureStatementSeller',
         folder_name: 'Folder',
         loop_id: 274_231,
-        last_modified_date: DateTime.parse('2014-08-25T18:33:46-04:00'),
-        created_date: DateTime.parse('2014-08-25T23:29:31-04:00'),
+        last_modified_date: Time.parse('2014-08-25T18:33:46-04:00'),
+        created_date: Time.parse('2014-08-25T23:29:31-04:00'),
         shared_with: [405_246, 405_247, 405_260],
         tags: ['test tag'],
         signature_verfication_link: 'DL5616224301S'

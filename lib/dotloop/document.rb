@@ -17,7 +17,7 @@ module Dotloop
     end
 
     def get(profile_id:, loop_view_id:, document_id:, document_name:)
-      document_name = CGI.escape(document_name.delete('/'))
+      document_name = CGI.escape(document_name.delete('/;'))
       sio = StringIO.new
       sio.set_encoding(Encoding::ASCII_8BIT)
       sio.write(

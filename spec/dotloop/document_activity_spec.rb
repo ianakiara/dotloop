@@ -22,7 +22,7 @@ RSpec.describe Dotloop::DocumentActivity do
       expect(document_activity.size).to eq(52)
       expect(document_activity).to all(be_a(Dotloop::Models::DocumentActivity))
       expect(document_activity.first).to have_attributes(
-        activity_date: DateTime.parse('2014-08-19T18:44:52-04:00'),
+        activity_date: Time.parse('2014-08-19T18:44:52-04:00'),
         message: 'Meyyalagan Chandrasekaran (Admin for DotLoop Final Review) viewed document <activity action="contracteditor" viewId="404271" documentId="560621">Buyers Sign here</activity>'
       )
     end

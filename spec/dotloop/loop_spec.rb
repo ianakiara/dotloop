@@ -73,7 +73,7 @@ RSpec.describe Dotloop::Loop do
       expect(loop_data).to be_a(Dotloop::Models::Loop)
       expect(loop_data).to have_attributes(
         created_by: 2_571_509,
-        last_updated: DateTime.parse('2014-07-28T16:11:56-04:00'),
+        last_updated: Time.parse('2014-07-28T16:11:56-04:00'),
         loop_id: 274_231,
         loop_name: 'buyers',
         loop_status: 'Private',
