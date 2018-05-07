@@ -19,6 +19,7 @@ module Dotloop
     end
 
     def raw(page, params = {})
+      binding.pry
       response = self.class.get(page, query: params, headers: headers, timeout: 60)
       handle_dotloop_error(response) if response.code != 200
       response.parsed_response
