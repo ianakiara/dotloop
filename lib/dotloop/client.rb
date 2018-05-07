@@ -20,12 +20,12 @@ module Dotloop
 
     def raw(page, params = {})
       response = self.class.get(page, query: params, headers: headers, timeout: 60)
-      handle_dotloop_error(response.code) if response.code != 200
+      handle_dotloop_error(response) if response.code != 200
       response.parsed_response
     end
 
-    def handle_dotloop_error(response_code)
-      error = case response_code
+    def handle_dotloop_error(response)
+      error = case response.code
               when 401
                 Dotloop::Unauthorized
               when 403
@@ -33,7 +33,7 @@ module Dotloop
               else
                 StandardError
               end
-      raise error, "Error communicating: Response code #{response_code}"
+      raise error, "Error communicating: Response code #{response.code}; Message #{response.message}"
     end
 
     def Profile
